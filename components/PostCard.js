@@ -1,10 +1,12 @@
 import Link from "next/link"
 
-export default function PostCard ({ post }){
+export default function PostCard({ post }) {
+    const categorySlug = post?.categories?.nodes[0]?.slug;
+    
     return (
-        <Link href={post.uri} className={"card"}>
+        <Link href={`/${categorySlug}/${post?.slug}`} className={"card"}>
             <a className="card">
-                <h3>{post.title} &rarr;</h3>
+                <h3>{post?.title} &rarr;</h3>
             </a>
         </Link>
     )
